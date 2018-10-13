@@ -210,18 +210,6 @@ division PROC
  	 		
  	CWD
  	IDIV BX
-	
-	;исправление отрицательного остатка
-	CMP DX, 0
-	JNS answerOutput
-	MOV CX, -1
-	CMP BX, 0
-	JNS correctRest
-	NEG BX ;если делитель отрицательный
-	NEG CX ;то смена знака BX и CX
-	correctRest: 
-	ADD DX, BX 
-	ADD AX, CX 
 
 	answerOutput:
  	CALL output
